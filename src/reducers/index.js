@@ -1,23 +1,23 @@
-import {
-    handleActions
-} from 'redux-actions'
+import { handleActions } from 'redux-actions'
 
-import {
-    addTodo,
-    toggleTodo,
-    setVisibilityFilter
-} from '../actions/index'
+import { addTodo, toggleTodo, setVisibilityFilter } from '../actions/index'
 
 const initialState = {
     todos: [],
     visibilityFilter: 'SHOW_ALL'
 }
 
+let todoIndex = 0
+
 const todoReducer = handleActions({
     [addTodo]: (state, action) => {
         return [
             ...state,
-            action.payload
+            {
+                id: todoIndex++,
+                text: action.payload,
+                completed: false
+            }
         ]
     },
     [toggleTodo]: (state, action) => {

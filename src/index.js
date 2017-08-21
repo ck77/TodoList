@@ -4,10 +4,10 @@ import { render } from 'react-dom'
 import { Provider } from 'react-redux'
 import { applyMiddleware, createStore } from 'redux'
 
-import todoReducer from './reducers/index'
+import todoApp from './reducers/index'
 import App from './components/App'
 
-let store = createStore(todoReducer, applyMiddleware(logger))
+let store = createStore(todoApp, applyMiddleware(logger))
 
 render(
     <Provider store={store}>
